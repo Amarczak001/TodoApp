@@ -10,10 +10,10 @@
         <button type="submit">Add</button>
     </form>
     <ul>
-        {% for index, task in enumerate(tasks) %}
+        {% for task in tasks %}
             <li>
-                {{ task }}
-                <a href="{{ url_for('delete', index=index) }}">[X]</a>
+                {{ loop.index }}. {{ task }}
+                <a href="{{ url_for('delete', index=loop.index - 1) }}">[X]</a>
             </li>
         {% endfor %}
     </ul>
